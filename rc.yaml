@@ -3,11 +3,12 @@ kind: ReplicationController
 metadata: 
   name: rc
 spec:
-  replicas: 3
+  replicas: 3  # no of instances 
   template: 
+  # pod template 
     metadata:
       labels:
-        env: test
+        env: test   # these labels are acting as selectors as well 
     spec:
       containers:
         - image: nginx
