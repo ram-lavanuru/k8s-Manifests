@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: rs
+spec: 
+  selector:
+    matchLabels:  # frequently used
+      env: dev
+      tier: frontend
+    matchExpressions: # very rare
+      - { key: tier, operator: In, values: [frontend,rs] }
+      - { key: dc, operator: NotIn, values: [mum,hyd] }
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        env: dev
+        tier: frontend
+    spec:
+      containers:
+        - image: nginx
+          name: nginx-rs  # mandatory
+      
