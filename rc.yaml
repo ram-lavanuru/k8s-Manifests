@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ReplicationController
+metadata: 
+  name: rc
+spec:
+  replicas: 3
+  template: 
+    metadata:
+      labels:
+        env: test
+    spec:
+      containers:
+        - image: nginx
+          name: nginx-cont
+
