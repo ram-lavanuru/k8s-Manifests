@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rolling-update
+spec:
+  selector:
+    matchLabels:
+      env: dev
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        env: dev
+    spec:
+      containers:
+        - image: nginx:stable-otel
+          name: nginx-cont
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
