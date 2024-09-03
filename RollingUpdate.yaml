@@ -16,7 +16,7 @@ spec:
         - image: nginx:stable-otel
           name: nginx-cont
   strategy:
-    type: RollingUpdate
+    type: RollingUpdate   # by default it will pick up, not manadatory to write
     rollingUpdate:
       maxSurge: 1
       maxUnavailable: 1
