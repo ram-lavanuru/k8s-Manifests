@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: first-deploy
+spec:
+  selector:
+    matchLabels: # frequently used
+      env: dev
+      tier: frontend
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        env: dev
+        tier: frontend
+    spec:
+      containers:
+        - image: nginx:stable-otel
+          name: nginx-rs  # mandatory
+
