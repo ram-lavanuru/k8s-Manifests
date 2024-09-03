@@ -20,4 +20,6 @@ spec:
       containers:
         - image: nginx
           name: nginx-rs  # mandatory
+
+          # NOte :-  ReplicaSet create 3 replicas, rs refers spec.selector for creating replicas based on spec.selector it will create repliacs and selector referes spec.template to check labels of the pod
       
