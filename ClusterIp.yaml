@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-clusterip
+spec:
+  selector:
+      env: test
+  type: ClusterIP # default only if we didn't mention
+  ports:
+    #nodePort:
+    - port: 80
+      targetPort: 80
+    #protocol
