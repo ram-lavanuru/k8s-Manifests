@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-loadbalancer
+spec:
+  selector:
+      env: test
+  type: LoadBalancer # default only if we didn't mention
+  ports:
+    #nodePort:
+    - port: 80
+      targetPort: 80
+    #protocol
